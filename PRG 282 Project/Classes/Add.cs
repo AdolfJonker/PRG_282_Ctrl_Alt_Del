@@ -1,12 +1,106 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Windows.Forms;
 
 namespace PRG_282_Project.Classes
 {
     internal class Add
     {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("=== One Kick Heroes Academy Database ===");
+            Console.WriteLine("Add a New Superhero\n");
+
+            //Input Fields
+
+            Console.WriteLine("Enter Hero ID:");
+            string heroID = Console.ReadLine();
+
+            Console.WriteLine("Enter Name:");
+            string name = Console.ReadLine();
+
+            Console.WriteLine("Enter Age:");
+            string age = Console.ReadLine();
+
+            Console.WriteLine("Enter Superpower:");
+            string superpower = Console.ReadLine();
+
+            Console.WriteLine("Enter Exam Score (0-100):");
+            string score = Console.ReadLine();
+
+            //Validate Inputs
+
+            if (string.IsNullOrWhiteSpace(heroID) ||
+                string.IsNullOrWhiteSpace(name) ||
+                string.IsNullOrWhiteSpace(age) ||
+                string.IsNullOrWhiteSpace(superpower) ||
+                string.IsNullOrWhiteSpace(score))
+            {
+                Console.WriteLine("Please fill out all fields.");
+                return;
+            }
+
+            if (!int.TryParse(age, out int age) || age <= 0)
+            {
+                Console.WriteLine("Age must be a positive number.");
+                return;
+            }
+
+            if (!int.TryParse(score, out int score) || score < 0 || score > 100)
+            {
+                Console.WriteLine("Exam Score must be between 0 and 100.");
+                return;
+            }
+
+            //Rank and Threat Level
+
+            string rank = CalculateRank(score);
+            string threat = CalculateThreat(rank);
+
+            //Record
+
+            string heroData = $"{heroID},{name},{age},{superpower},{score},{rank},{threat}";
+
+            //Save to file
+
+            string filePath = "superheroes.txt";
+
+            try
+            {
+                File.AppendAllText(filePath, heroData + Environment.NewLine);
+                Console.WriteLine("/n Superhero Added!");
+                Console.WriteLine($"Saved to {filePath}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error saving to file: {ex.Message}");
+            }
+        }
+
+        //Rank Calculator
+        static string CalculateRank(int score)
+        {
+            if (score >= 81) return "S-Rank";
+            if (score >= 61) return "A-Rank";
+            if (score >= 41) return "B-Rank";
+            return "C-Rank";
+        }
+
+        //Threat Calculator
+        static string CalculateRank(string rank)
+        {
+            switch (rank)
+            {
+                case "S-Rank": return "Finals Week";
+                case "A-Rank": return "Midterm Madness";
+                case "B-Rank": return "Group Project Gone Wrong" +
+                default: return "Pop Quiz";
+            }
+        }
     }
 }
+
