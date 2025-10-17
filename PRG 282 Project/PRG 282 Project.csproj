@@ -7,7 +7,7 @@
     <ProjectGuid>{CA6918FC-27A5-49DF-9247-7354FF829BD3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>PRG_282_Project</RootNamespace>
-    <AssemblyName>PRG_282_Project</AssemblyName>
+    <AssemblyName>PRG 282 Project</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Add.cs" />
+    <Compile Include="Classes\Delete.cs" />
+    <Compile Include="Classes\Display.cs" />
+    <Compile Include="Classes\Update.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +79,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Text\summary.txt" />
+    <Content Include="Text\superheroes.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

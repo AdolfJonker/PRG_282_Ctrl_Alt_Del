@@ -97,8 +97,7 @@ namespace PRG_282_Project.Classes
             {
                 case "S-Rank": return "Finals Week";
                 case "A-Rank": return "Midterm Madness";
-                case "B-Rank": return "Group Project Gone Wrong" +
-                default: return "Pop Quiz";
+                case "B-Rank": return "Group Project Gone Wrong" + default: return "Pop Quiz";
             }
         }
     }
