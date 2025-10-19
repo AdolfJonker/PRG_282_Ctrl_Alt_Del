@@ -98,7 +98,7 @@
             this.grpHeroDetails.Controls.Add(this.lblAge);
             this.grpHeroDetails.Location = new System.Drawing.Point(34, 90);
             this.grpHeroDetails.Name = "grpHeroDetails";
-            this.grpHeroDetails.Size = new System.Drawing.Size(402, 285);
+            this.grpHeroDetails.Size = new System.Drawing.Size(332, 285);
             this.grpHeroDetails.TabIndex = 0;
             this.grpHeroDetails.TabStop = false;
             this.grpHeroDetails.Text = "Hero Details";
@@ -107,14 +107,14 @@
             // 
             this.textBox8.Location = new System.Drawing.Point(135, 247);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(248, 22);
+            this.textBox8.Size = new System.Drawing.Size(185, 22);
             this.textBox8.TabIndex = 8;
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(92, 29);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(291, 22);
+            this.textBox1.Size = new System.Drawing.Size(228, 22);
             this.textBox1.TabIndex = 1;
             // 
             // lblThreatLevel
@@ -130,7 +130,7 @@
             // 
             this.textBox6.Location = new System.Drawing.Point(135, 212);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(248, 22);
+            this.textBox6.Size = new System.Drawing.Size(185, 22);
             this.textBox6.TabIndex = 6;
             // 
             // lblRank
@@ -146,7 +146,7 @@
             // 
             this.textBox5.Location = new System.Drawing.Point(135, 173);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(248, 22);
+            this.textBox5.Size = new System.Drawing.Size(185, 22);
             this.textBox5.TabIndex = 5;
             // 
             // lblExamScore
@@ -162,7 +162,7 @@
             // 
             this.textBox4.Location = new System.Drawing.Point(92, 137);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(291, 22);
+            this.textBox4.Size = new System.Drawing.Size(228, 22);
             this.textBox4.TabIndex = 4;
             // 
             // lblSuperpower
@@ -178,7 +178,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(92, 99);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(291, 22);
+            this.textBox3.Size = new System.Drawing.Size(228, 22);
             this.textBox3.TabIndex = 3;
             // 
             // lblHeroID
@@ -194,7 +194,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(92, 64);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(291, 22);
+            this.textBox2.Size = new System.Drawing.Size(228, 22);
             this.textBox2.TabIndex = 2;
             // 
             // lblName
@@ -217,9 +217,9 @@
             // 
             // btnAddHero
             // 
-            this.btnAddHero.Location = new System.Drawing.Point(34, 399);
+            this.btnAddHero.Location = new System.Drawing.Point(34, 387);
             this.btnAddHero.Name = "btnAddHero";
-            this.btnAddHero.Size = new System.Drawing.Size(197, 46);
+            this.btnAddHero.Size = new System.Drawing.Size(166, 46);
             this.btnAddHero.TabIndex = 8;
             this.btnAddHero.Text = "Add New Superhero";
             this.btnAddHero.UseVisualStyleBackColor = true;
@@ -227,9 +227,9 @@
             // 
             // btnViewAll
             // 
-            this.btnViewAll.Location = new System.Drawing.Point(239, 399);
+            this.btnViewAll.Location = new System.Drawing.Point(34, 438);
             this.btnViewAll.Name = "btnViewAll";
-            this.btnViewAll.Size = new System.Drawing.Size(197, 46);
+            this.btnViewAll.Size = new System.Drawing.Size(166, 46);
             this.btnViewAll.TabIndex = 9;
             this.btnViewAll.Text = "View All Superheroes";
             this.btnViewAll.UseVisualStyleBackColor = true;
@@ -237,9 +237,9 @@
             // 
             // btnUpdateHero
             // 
-            this.btnUpdateHero.Location = new System.Drawing.Point(34, 454);
+            this.btnUpdateHero.Location = new System.Drawing.Point(200, 387);
             this.btnUpdateHero.Name = "btnUpdateHero";
-            this.btnUpdateHero.Size = new System.Drawing.Size(197, 46);
+            this.btnUpdateHero.Size = new System.Drawing.Size(166, 46);
             this.btnUpdateHero.TabIndex = 11;
             this.btnUpdateHero.Text = "Update Superhero Information";
             this.btnUpdateHero.UseVisualStyleBackColor = true;
@@ -247,9 +247,9 @@
             // 
             // btnDeleteHero
             // 
-            this.btnDeleteHero.Location = new System.Drawing.Point(239, 454);
+            this.btnDeleteHero.Location = new System.Drawing.Point(200, 439);
             this.btnDeleteHero.Name = "btnDeleteHero";
-            this.btnDeleteHero.Size = new System.Drawing.Size(197, 46);
+            this.btnDeleteHero.Size = new System.Drawing.Size(166, 45);
             this.btnDeleteHero.TabIndex = 10;
             this.btnDeleteHero.Text = "Delete a Superhero";
             this.btnDeleteHero.UseVisualStyleBackColor = true;
@@ -257,9 +257,9 @@
             // 
             // btnSummaryReport
             // 
-            this.btnSummaryReport.Location = new System.Drawing.Point(34, 506);
+            this.btnSummaryReport.Location = new System.Drawing.Point(34, 489);
             this.btnSummaryReport.Name = "btnSummaryReport";
-            this.btnSummaryReport.Size = new System.Drawing.Size(402, 46);
+            this.btnSummaryReport.Size = new System.Drawing.Size(332, 46);
             this.btnSummaryReport.TabIndex = 12;
             this.btnSummaryReport.Text = "Generate a Summary Report";
             this.btnSummaryReport.UseVisualStyleBackColor = true;
@@ -268,9 +268,9 @@
             // grpSuperheroes
             // 
             this.grpSuperheroes.Controls.Add(this.dgvSuperheroes);
-            this.grpSuperheroes.Location = new System.Drawing.Point(465, 90);
+            this.grpSuperheroes.Location = new System.Drawing.Point(385, 90);
             this.grpSuperheroes.Name = "grpSuperheroes";
-            this.grpSuperheroes.Size = new System.Drawing.Size(689, 284);
+            this.grpSuperheroes.Size = new System.Drawing.Size(655, 284);
             this.grpSuperheroes.TabIndex = 13;
             this.grpSuperheroes.TabStop = false;
             this.grpSuperheroes.Text = "Superheroes";
@@ -295,7 +295,7 @@
             this.dgvSuperheroes.ReadOnly = true;
             this.dgvSuperheroes.RowHeadersWidth = 51;
             this.dgvSuperheroes.RowTemplate.Height = 24;
-            this.dgvSuperheroes.Size = new System.Drawing.Size(674, 249);
+            this.dgvSuperheroes.Size = new System.Drawing.Size(643, 249);
             this.dgvSuperheroes.TabIndex = 0;
             // 
             // colHeroID
@@ -370,9 +370,9 @@
             this.grpSummary.Controls.Add(this.lblAverageExamScore);
             this.grpSummary.Controls.Add(this.lblAverageAge);
             this.grpSummary.Controls.Add(this.lblTotalHeroes);
-            this.grpSummary.Location = new System.Drawing.Point(465, 399);
+            this.grpSummary.Location = new System.Drawing.Point(385, 387);
             this.grpSummary.Name = "grpSummary";
-            this.grpSummary.Size = new System.Drawing.Size(680, 152);
+            this.grpSummary.Size = new System.Drawing.Size(655, 148);
             this.grpSummary.TabIndex = 14;
             this.grpSummary.TabStop = false;
             this.grpSummary.Text = "Summary";
@@ -506,10 +506,10 @@
             // lblHeading
             // 
             this.lblHeading.AutoSize = true;
-            this.lblHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeading.Location = new System.Drawing.Point(48, 17);
+            this.lblHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeading.Location = new System.Drawing.Point(35, 26);
             this.lblHeading.Name = "lblHeading";
-            this.lblHeading.Size = new System.Drawing.Size(1085, 54);
+            this.lblHeading.Size = new System.Drawing.Size(932, 46);
             this.lblHeading.TabIndex = 15;
             this.lblHeading.Text = "One Kick Heroes Academy: Superhero Database";
             // 
@@ -519,7 +519,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1181, 576);
+            this.ClientSize = new System.Drawing.Size(1131, 550);
             this.Controls.Add(this.lblHeading);
             this.Controls.Add(this.grpSummary);
             this.Controls.Add(this.grpSuperheroes);
