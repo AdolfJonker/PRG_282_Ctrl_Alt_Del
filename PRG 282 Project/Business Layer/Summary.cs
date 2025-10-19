@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using PRG_282_Project.Business_Layer; // Superhero
+using PRG_282_Project.Data_Layer;     // FormatHandler, FileHandler
 
 namespace PRG_282_Project.Classes
 {
-    /// <summary>
-    /// POCO for returning summary values to the UI.
-    /// </summary>
+
     public sealed class SummaryResult
     {
         public int TotalHeroes { get; set; }
@@ -19,103 +19,141 @@ namespace PRG_282_Project.Classes
         public int CountB { get; set; }
         public int CountC { get; set; }
 
-        /// Formats the summary for saving to file.
         public override string ToString()
         {
             return
-           $@"=== Superhero Summary Report ===
-            Generated: {DateTime.Now:yyyy-MM-dd HH:mm}
+$@"=== Superhero Summary Report ===
+Generated: {DateTime.Now:yyyy-MM-dd HH:mm}
 
-               Total heroes           : {TotalHeroes}
-               Average age            : {AverageAge:0.00}
-               Average exam score     : {AverageExamScore:0.00}
+  Total heroes           : {TotalHeroes}
+  Average age            : {AverageAge:0.00}
+  Average exam score     : {AverageExamScore:0.00}
 
-            Heroes per rank:
-              S: {CountS}
-              A: {CountA}
-              B: {CountB}
-              C: {CountC}";
+Heroes per rank (stored values):
+  S : {CountS}
+  A : {CountA}
+  B : {CountB}
+  C : {CountC}";
         }
     }
 
-   
-    /// Reads superheroes.txt, computes a summary, writes summary.txt, returns values for UI.
-   
+
+    // Reads via FormatHandler, uses stored Rank from file (via FileHandler),
+    // computes summary, writes summary.txt, returns values for UI.
+
     public sealed class Summary
     {
-        private readonly string _dataPath;
         private readonly string _outPath;
 
-        /// <param name="dataPath">Defaults to 'superheroes.txt' in app folder.</param>
-        /// <param name="outPath">Defaults to 'summary.txt' in app folder.</param>
-        public Summary(string dataPath = "superheroes.txt", string outPath = "summary.txt")
+        public Summary(string outPath = "summary.txt")
         {
-            _dataPath = dataPath;
             _outPath = outPath;
         }
 
-      
-        /// Main call for your form: compute and persist a summary.
-       
         public SummaryResult Generate()
         {
-            var heroes = LoadHeroes(_dataPath);
-            var result = Compute(heroes);
+            // Load heroes as objects (id/name/age/superpower/score)
+            var heroes = LoadHeroes();
+
+            // Build a map of HeroID -> stored Rank from the raw file lines
+            var rankById = LoadStoredRanks();
+
+            // Compute stats using stored ranks
+            var result = Compute(heroes, rankById);
+
+            // Persist human-readable summary
             Save(result, _outPath);
+
             return result;
         }
 
-        /// Loads heroes from the data file.
-        private static IEnumerable<(string Id, string Name, int Age, int Score, string Rank)> LoadHeroes(string path)
+        // -------------------------
+        // Internals
+        // -------------------------
+
+        private static List<Superhero> LoadHeroes()
         {
-            if (!File.Exists(path))
-                return Enumerable.Empty<(string, string, int, int, string)>();
+            var fmt = new FormatHandler();
+            return fmt.FormatData() ?? new List<Superhero>();
+        }
 
-            var list = new List<(string, string, int, int, string)>();
-
-            foreach (var raw in File.ReadAllLines(path))
+        /// <summary>
+        /// Reads raw lines via FileHandler and extracts stored Rank.
+        /// Expected formats (both supported):
+        ///   [0]Id,[1]Name,[2]Age,[3]Superpower,[4]Score,[5]Rank
+        ///   or legacy with extra columns (Rank still at index 5).
+        /// If rank is missing, we do NOT derive; we simply skip counting it (treated as 'C' below).
+        /// </summary>
+        private static Dictionary<string, string> LoadStoredRanks()
+        {
+            var map = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            var fh = new FileHandler();
+            foreach (var raw in fh.ReadFiles() ?? new List<string>())
             {
                 if (string.IsNullOrWhiteSpace(raw)) continue;
 
-                // Expected format: Id, Name, Age, City, ExamScore, Rank, Description
                 var parts = raw.Split(',');
-                if (parts.Length < 7) continue;
-
-                // age / score
-                if (!int.TryParse(parts[2], NumberStyles.Integer, CultureInfo.InvariantCulture, out var age)) continue;
-                if (!int.TryParse(parts[4], NumberStyles.Integer, CultureInfo.InvariantCulture, out var score)) continue;
-
-                var rank = NormalizeRank(parts[5]); // "S", "A", "B", "C" from things like "S", "S-Rank", etc.
-
-                list.Add((parts[0].Trim(), parts[1].Trim(), age, score, rank));
+                if (parts.Length >= 6)
+                {
+                    var id = parts[0].Trim();
+                    var rank = NormalizeRank(parts[5]); // trust stored, just normalize
+                    if (!string.IsNullOrEmpty(id))
+                        map[id] = rank;
+                }
             }
-
-            return list;
+            return map;
         }
 
-        /// Computes summary values from the hero list.
-        private static SummaryResult Compute(IEnumerable<(string Id, string Name, int Age, int Score, string Rank)> heroes)
+        private static SummaryResult Compute(IEnumerable<Superhero> heroes, Dictionary<string, string> rankById)
         {
-            var arr = heroes as (string Id, string Name, int Age, int Score, string Rank)[] ?? heroes.ToArray();
-            var total = arr.Length;
+            var arr = (heroes ?? Enumerable.Empty<Superhero>()).ToArray();
+            int total = arr.Length;
 
-            double avgAge = total == 0 ? 0 : arr.Average(h => (double)h.Age);
-            double avgScore = total == 0 ? 0 : arr.Average(h => (double)h.Score);
+            var ages = new List<int>();
+            var scores = new List<int>();
+            int countS = 0, countA = 0, countB = 0, countC = 0;
+
+            foreach (var h in arr)
+            {
+                // Age
+                if (int.TryParse(h.age?.Trim(), NumberStyles.Integer, CultureInfo.InvariantCulture, out var ageVal))
+                    ages.Add(ageVal);
+
+                // Score
+                if (int.TryParse(h.score?.Trim(), NumberStyles.Integer, CultureInfo.InvariantCulture, out var scoreVal))
+                    scores.Add(scoreVal);
+
+                // Stored rank (default to C only if missing/empty)
+                string rank = null;
+                if (!string.IsNullOrWhiteSpace(h.heroID))
+                    rankById.TryGetValue(h.heroID, out rank);
+
+                rank = NormalizeRank(rank);
+
+                switch (rank)
+                {
+                    case "S": countS++; break;
+                    case "A": countA++; break;
+                    case "B": countB++; break;
+                    default: countC++; break; // includes null/empty -> treated as C
+                }
+            }
+
+            double avgAge = ages.Count == 0 ? 0 : ages.Average();
+            double avgScore = scores.Count == 0 ? 0 : scores.Average();
 
             return new SummaryResult
             {
                 TotalHeroes = total,
                 AverageAge = Math.Round(avgAge, 2),
                 AverageExamScore = Math.Round(avgScore, 2),
-                CountS = arr.Count(h => h.Rank == "S"),
-                CountA = arr.Count(h => h.Rank == "A"),
-                CountB = arr.Count(h => h.Rank == "B"),
-                CountC = arr.Count(h => h.Rank == "C"),
+                CountS = countS,
+                CountA = countA,
+                CountB = countB,
+                CountC = countC
             };
         }
 
-
-        /// Saves the summary to the output file.
         private static void Save(SummaryResult s, string outPath)
         {
             var dir = Path.GetDirectoryName(Path.GetFullPath(outPath));
@@ -125,20 +163,17 @@ namespace PRG_282_Project.Classes
             File.WriteAllText(outPath, s.ToString());
         }
 
-        /// Normalizes rank strings to "S", "A", "B", or "C".
+        /// <summary>
+        /// Normalizes stored rank strings to "S", "A", "B", or "C".
+        /// Accepts values like "S", "S-Rank", "rank a", etc.
+        /// </summary>
         private static string NormalizeRank(string raw)
         {
             if (string.IsNullOrWhiteSpace(raw)) return "C";
             var t = raw.Trim().ToUpperInvariant();
-
-
-            if (t.Length > 0)
-            {
-                var first = t[0];
-                if (first == 'S' || first == 'A' || first == 'B' || first == 'C')
-                    return first.ToString();
-            }
-            return "C";
+            var c = t[0];
+            return (c == 'S' || c == 'A' || c == 'B' || c == 'C') ? c.ToString() : "C";
         }
     }
 }
+
