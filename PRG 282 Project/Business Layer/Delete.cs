@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Windows.Forms; // Added for MessageBox support
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,7 +39,8 @@ namespace PRG_282_Project.Classes
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error deleting superhero: {ex.Message}");
+                // Use MessageBox for user feedback in Windows Forms
+                MessageBox.Show($"Error deleting superhero: {ex.Message}", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 

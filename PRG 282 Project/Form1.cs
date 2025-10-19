@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PRG_282_Project.Presentation_Layer;
 using PRG_282_Project.Data_Layer;
+using PRG_282_Project.Business_Layer;
 
 namespace PRG_282_Project
 {
@@ -51,33 +52,34 @@ namespace PRG_282_Project
 
         private void btnUpdateHero_Click(object sender, EventArgs e){ }
 
-        private void btnDeleteHero_Click(object sender, EventArgs e){ }
+        private void btnDeleteHero_Click(object sender, EventArgs e)
+        {
+            if (dgvSuperheroes.SelectedRows.Count > 0)
+            {
+                // Assuming HeroID is in the first column
+                string heroID = dgvSuperheroes.SelectedRows[0].Cells[0].Value.ToString();
+
+                bool deleted = PRG_282_Project.Classes.Delete.DeleteByHeroID(heroID);
+
+                if (deleted)
+                {
+                    MessageBox.Show("Superhero deleted successfully.", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnViewAll_Click(null, null); // Refresh the grid
+                }
+                else
+                {
+                    MessageBox.Show("Superhero not found.", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a superhero to delete.", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
 
         private void btnSummaryReport_Click(object sender, EventArgs e) { }
 
-        //private void LoadSuperheroes()
-        //{
-        //    string filePath = "superheroes.txt";
-
-        //    if (!File.Exists(filePath))
-        //    {
-        //        MessageBox.Show("No data file found yet.");
-        //        return;
-        //    }
-
-        //    dgvSuperheroes.Rows.Clear(); // Clear old data
-
-        //    string[] lines = File.ReadAllLines(filePath);
-        //    foreach (string line in lines)
-        //    {
-        //        string[] parts = line.Split(',');
-        //        if (parts.Length == 7)
-        //        {
-        //            dgvSuperheroes.Rows.Add(parts[0], parts[1], parts[2],
-        //                                    parts[3], parts[4], parts[5], parts[6]);
-        //        }
-        //    }
-        //}
+     
     }
  }
 
