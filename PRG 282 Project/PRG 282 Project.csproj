@@ -21,7 +21,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>5</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,18 +46,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Add.cs" />
-    <Compile Include="Classes\Delete.cs" />
-    <Compile Include="Classes\Display.cs" />
-    <Compile Include="Classes\Summary.cs" />
-    <Compile Include="Classes\Update.cs" />
+    <Compile Include="Business Layer\Add.cs" />
+    <Compile Include="Business Layer\Delete.cs" />
+    <Compile Include="Business Layer\Display.cs" />
+    <Compile Include="Business Layer\FormatHandler.cs" />
+    <Compile Include="Business Layer\Summary.cs" />
+    <Compile Include="Business Layer\Superhero.cs" />
+    <Compile Include="Business Layer\Update.cs" />
+    <Compile Include="Data Layer\FileHandler.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Presentation Layer\DisplayInfo.cs" />
+    <Compile Include="Presentation Layer\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -88,5 +92,6 @@
     <Content Include="Text\summary.txt" />
     <Content Include="Text\superheroes.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
