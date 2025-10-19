@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Documents\\GitHub\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|c:\\users\\user\\documents\\github\\prg_282_ctrl_alt_del\\prg 282 project\\business layer\\display.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|solutionrelative:business layer\\display.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|c:\\users\\user\\documents\\github\\prg_282_ctrl_alt_del\\prg 282 project\\presentation layer\\displayinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|solutionrelative:presentation layer\\displayinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|c:\\users\\user\\documents\\github\\prg_282_ctrl_alt_del\\prg 282 project\\data layer\\filehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|solutionrelative:data layer\\filehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|C:\\Users\\user\\Documents\\GitHub\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\business layer\\formathandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|solutionrelative:business layer\\formathandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|C:\\Users\\user\\Documents\\GitHub\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,7 +31,7 @@
       "RelativeMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|c:\\users\\user\\documents\\github\\prg_282_ctrl_alt_del\\prg 282 project\\business layer\\delete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|C:\\Users\\user\\Documents\\GitHub\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\business layer\\delete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|solutionrelative:business layer\\delete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -26,8 +42,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DisplayInfo.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Presentation Layer\\DisplayInfo.cs",
+              "RelativeDocumentMoniker": "Presentation Layer\\DisplayInfo.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Presentation Layer\\DisplayInfo.cs",
+              "RelativeToolTip": "Presentation Layer\\DisplayInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T13:09:58.88Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Display.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Business Layer\\Display.cs",
+              "RelativeDocumentMoniker": "Business Layer\\Display.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Business Layer\\Display.cs",
+              "RelativeToolTip": "Business Layer\\Display.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T13:09:20.576Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
@@ -35,6 +77,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "FormatHandler.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Business Layer\\FormatHandler.cs",
+              "RelativeDocumentMoniker": "Business Layer\\FormatHandler.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Business Layer\\FormatHandler.cs",
+              "RelativeToolTip": "Business Layer\\FormatHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T11:33:16.618Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FileHandler.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Data Layer\\FileHandler.cs",
+              "RelativeDocumentMoniker": "Data Layer\\FileHandler.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Data Layer\\FileHandler.cs",
+              "RelativeToolTip": "Data Layer\\FileHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T11:32:34.145Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Delete.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Business Layer\\Delete.cs",
               "RelativeDocumentMoniker": "Business Layer\\Delete.cs",
@@ -42,46 +109,42 @@
               "RelativeToolTip": "Business Layer\\Delete.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T10:43:22.811Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-19T10:43:22.811Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "Form1.Designer.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Form1.Designer.cs",
               "RelativeToolTip": "Form1.Designer.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T10:19:57.582Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-19T10:19:57.582Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-18T16:58:21.904Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-18T16:58:21.904Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Form1.cs [Design]",
               "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-18T14:33:22.341Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-10-18T14:33:22.341Z"
             }
           ]
         }
