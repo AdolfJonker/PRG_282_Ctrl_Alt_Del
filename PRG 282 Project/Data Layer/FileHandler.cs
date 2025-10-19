@@ -1,8 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PRG_282_Project.Business_Layer;
 
 namespace PRG_282_Project.Data_Layer
 {
@@ -17,20 +19,20 @@ namespace PRG_282_Project.Data_Layer
      return fileLines;
  }
 
- public List<string> WriteToFile()
- {
-     List<string> output = new List<string>();
-
-     FormatHandler handler = new FormatHandler();
-
-     foreach (var p in handler.FormatData())
+    public List<string> WriteToFile()
      {
-         output.Add(p.ToString());
+         List<string> output = new List<string>();
+
+         FormatHandler handler = new FormatHandler();
+
+         foreach (var p in handler.FormatData())
+         {
+             output.Add(p.ToString());
+         }
+
+         File.WriteAllLines("summary.txt", output);
+
+         return output;
      }
-
-     File.WriteAllLines("summary.txt", output);
-
-     return output;
- }
     }
 }
