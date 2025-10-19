@@ -1,5 +1,0 @@
-C:\Users\user\Documents\GitHub\PRG_282_Ctrl_Alt_Del\PRG 282 Project\obj\Debug\PRG 282 Project.csproj.AssemblyReference.cache
-C:\Users\user\Documents\GitHub\PRG_282_Ctrl_Alt_Del\PRG 282 Project\obj\Debug\PRG_282_Project.Form1.resources
-C:\Users\user\Documents\GitHub\PRG_282_Ctrl_Alt_Del\PRG 282 Project\obj\Debug\PRG_282_Project.Properties.Resources.resources
-C:\Users\user\Documents\GitHub\PRG_282_Ctrl_Alt_Del\PRG 282 Project\obj\Debug\PRG 282 Project.csproj.GenerateResource.cache
-C:\Users\user\Documents\GitHub\PRG_282_Ctrl_Alt_Del\PRG 282 Project\obj\Debug\PRG 282 Project.csproj.CoreCompileInputs.cache
