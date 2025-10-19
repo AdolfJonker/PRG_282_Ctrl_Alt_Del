@@ -30,18 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.grpHeroDetails = new System.Windows.Forms.GroupBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtThreatLevel = new System.Windows.Forms.TextBox();
+            this.txtHeroID = new System.Windows.Forms.TextBox();
             this.lblThreatLevel = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtRank = new System.Windows.Forms.TextBox();
             this.lblRank = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtScore = new System.Windows.Forms.TextBox();
             this.lblExamScore = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtSuperpower = new System.Windows.Forms.TextBox();
             this.lblSuperpower = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtAge = new System.Windows.Forms.TextBox();
             this.lblHeroID = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblAge = new System.Windows.Forms.Label();
             this.btnAddHero = new System.Windows.Forms.Button();
@@ -82,18 +82,18 @@
             // 
             // grpHeroDetails
             // 
-            this.grpHeroDetails.Controls.Add(this.textBox8);
-            this.grpHeroDetails.Controls.Add(this.textBox1);
+            this.grpHeroDetails.Controls.Add(this.txtThreatLevel);
+            this.grpHeroDetails.Controls.Add(this.txtHeroID);
             this.grpHeroDetails.Controls.Add(this.lblThreatLevel);
-            this.grpHeroDetails.Controls.Add(this.textBox6);
+            this.grpHeroDetails.Controls.Add(this.txtRank);
             this.grpHeroDetails.Controls.Add(this.lblRank);
-            this.grpHeroDetails.Controls.Add(this.textBox5);
+            this.grpHeroDetails.Controls.Add(this.txtScore);
             this.grpHeroDetails.Controls.Add(this.lblExamScore);
-            this.grpHeroDetails.Controls.Add(this.textBox4);
+            this.grpHeroDetails.Controls.Add(this.txtSuperpower);
             this.grpHeroDetails.Controls.Add(this.lblSuperpower);
-            this.grpHeroDetails.Controls.Add(this.textBox3);
+            this.grpHeroDetails.Controls.Add(this.txtAge);
             this.grpHeroDetails.Controls.Add(this.lblHeroID);
-            this.grpHeroDetails.Controls.Add(this.textBox2);
+            this.grpHeroDetails.Controls.Add(this.txtName);
             this.grpHeroDetails.Controls.Add(this.lblName);
             this.grpHeroDetails.Controls.Add(this.lblAge);
             this.grpHeroDetails.Location = new System.Drawing.Point(34, 90);
@@ -103,19 +103,19 @@
             this.grpHeroDetails.TabStop = false;
             this.grpHeroDetails.Text = "Hero Details";
             // 
-            // textBox8
+            // txtThreatLevel
             // 
-            this.textBox8.Location = new System.Drawing.Point(135, 247);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(185, 22);
-            this.textBox8.TabIndex = 8;
+            this.txtThreatLevel.Location = new System.Drawing.Point(135, 247);
+            this.txtThreatLevel.Name = "txtThreatLevel";
+            this.txtThreatLevel.Size = new System.Drawing.Size(185, 22);
+            this.txtThreatLevel.TabIndex = 8;
             // 
-            // textBox1
+            // txtHeroID
             // 
-            this.textBox1.Location = new System.Drawing.Point(92, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(228, 22);
-            this.textBox1.TabIndex = 1;
+            this.txtHeroID.Location = new System.Drawing.Point(92, 29);
+            this.txtHeroID.Name = "txtHeroID";
+            this.txtHeroID.Size = new System.Drawing.Size(228, 22);
+            this.txtHeroID.TabIndex = 1;
             // 
             // lblThreatLevel
             // 
@@ -126,12 +126,12 @@
             this.lblThreatLevel.TabIndex = 4;
             this.lblThreatLevel.Text = "Threat Level";
             // 
-            // textBox6
+            // txtRank
             // 
-            this.textBox6.Location = new System.Drawing.Point(135, 212);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(185, 22);
-            this.textBox6.TabIndex = 6;
+            this.txtRank.Location = new System.Drawing.Point(135, 212);
+            this.txtRank.Name = "txtRank";
+            this.txtRank.Size = new System.Drawing.Size(185, 22);
+            this.txtRank.TabIndex = 6;
             // 
             // lblRank
             // 
@@ -142,12 +142,12 @@
             this.lblRank.TabIndex = 4;
             this.lblRank.Text = "Rank";
             // 
-            // textBox5
+            // txtScore
             // 
-            this.textBox5.Location = new System.Drawing.Point(135, 173);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(185, 22);
-            this.textBox5.TabIndex = 5;
+            this.txtScore.Location = new System.Drawing.Point(135, 173);
+            this.txtScore.Name = "txtScore";
+            this.txtScore.Size = new System.Drawing.Size(185, 22);
+            this.txtScore.TabIndex = 5;
             // 
             // lblExamScore
             // 
@@ -158,12 +158,12 @@
             this.lblExamScore.TabIndex = 3;
             this.lblExamScore.Text = "Exam Score (0-100)";
             // 
-            // textBox4
+            // txtSuperpower
             // 
-            this.textBox4.Location = new System.Drawing.Point(92, 137);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(228, 22);
-            this.textBox4.TabIndex = 4;
+            this.txtSuperpower.Location = new System.Drawing.Point(92, 137);
+            this.txtSuperpower.Name = "txtSuperpower";
+            this.txtSuperpower.Size = new System.Drawing.Size(228, 22);
+            this.txtSuperpower.TabIndex = 4;
             // 
             // lblSuperpower
             // 
@@ -174,12 +174,12 @@
             this.lblSuperpower.TabIndex = 4;
             this.lblSuperpower.Text = "Superpower";
             // 
-            // textBox3
+            // txtAge
             // 
-            this.textBox3.Location = new System.Drawing.Point(92, 99);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(228, 22);
-            this.textBox3.TabIndex = 3;
+            this.txtAge.Location = new System.Drawing.Point(92, 99);
+            this.txtAge.Name = "txtAge";
+            this.txtAge.Size = new System.Drawing.Size(228, 22);
+            this.txtAge.TabIndex = 3;
             // 
             // lblHeroID
             // 
@@ -190,12 +190,12 @@
             this.lblHeroID.TabIndex = 1;
             this.lblHeroID.Text = "Hero ID";
             // 
-            // textBox2
+            // txtName
             // 
-            this.textBox2.Location = new System.Drawing.Point(92, 64);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(228, 22);
-            this.textBox2.TabIndex = 2;
+            this.txtName.Location = new System.Drawing.Point(92, 64);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(228, 22);
+            this.txtName.TabIndex = 2;
             // 
             // lblName
             // 
@@ -552,13 +552,13 @@
         private System.Windows.Forms.Label lblHeroID;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblAge;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtThreatLevel;
+        private System.Windows.Forms.TextBox txtHeroID;
+        private System.Windows.Forms.TextBox txtRank;
+        private System.Windows.Forms.TextBox txtScore;
+        private System.Windows.Forms.TextBox txtSuperpower;
+        private System.Windows.Forms.TextBox txtAge;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button btnAddHero;
         private System.Windows.Forms.Button btnViewAll;
         private System.Windows.Forms.Button btnUpdateHero;
