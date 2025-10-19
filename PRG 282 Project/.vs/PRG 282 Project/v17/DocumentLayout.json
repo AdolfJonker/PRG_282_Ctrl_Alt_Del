@@ -3,11 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\adolf\\OneDrive\\Desktop\\ctrl_alt_delet\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|C:\\Users\\adolf\\OneDrive\\Desktop\\ctrl_alt_delet\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\business layer\\summary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|C:\\Users\\adolf\\OneDrive\\Desktop\\ctrl_alt_delet\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|c:\\users\\adolf\\onedrive\\desktop\\ctrl_alt_delet\\prg_282_ctrl_alt_del\\prg 282 project\\business layer\\summary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|solutionrelative:business layer\\summary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|c:\\users\\adolf\\onedrive\\desktop\\ctrl_alt_delet\\prg_282_ctrl_alt_del\\prg 282 project\\business layer\\update.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|C:\\Users\\adolf\\OneDrive\\Desktop\\ctrl_alt_delet\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\business layer\\update.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|solutionrelative:business layer\\update.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -39,10 +43,6 @@
       "RelativeMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|C:\\Users\\adolf\\OneDrive\\Desktop\\ctrl_alt_delet\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|C:\\Users\\adolf\\OneDrive\\Desktop\\ctrl_alt_delet\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\business layer\\display.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CA6918FC-27A5-49DF-9247-7354FF829BD3}|PRG 282 Project.csproj|solutionrelative:business layer\\display.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -58,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,7 +70,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\adolf\\OneDrive\\Desktop\\ctrl_alt_delet\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Presentation Layer\\Program.cs",
               "RelativeDocumentMoniker": "Presentation Layer\\Program.cs",
@@ -82,7 +82,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Superhero.cs",
               "DocumentMoniker": "C:\\Users\\adolf\\OneDrive\\Desktop\\ctrl_alt_delet\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Business Layer\\Superhero.cs",
               "RelativeDocumentMoniker": "Business Layer\\Superhero.cs",
@@ -94,7 +94,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Summary.cs",
               "DocumentMoniker": "C:\\Users\\adolf\\OneDrive\\Desktop\\ctrl_alt_delet\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Business Layer\\Summary.cs",
               "RelativeDocumentMoniker": "Business Layer\\Summary.cs",
@@ -107,7 +107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Update.cs",
               "DocumentMoniker": "C:\\Users\\adolf\\OneDrive\\Desktop\\ctrl_alt_delet\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Business Layer\\Update.cs",
               "RelativeDocumentMoniker": "Business Layer\\Update.cs",
@@ -115,12 +115,11 @@
               "RelativeToolTip": "Business Layer\\Update.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAUwCkAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T13:36:39.069Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-19T13:36:39.069Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "DisplayInfo.cs",
               "DocumentMoniker": "C:\\Users\\adolf\\OneDrive\\Desktop\\ctrl_alt_delet\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Presentation Layer\\DisplayInfo.cs",
               "RelativeDocumentMoniker": "Presentation Layer\\DisplayInfo.cs",
@@ -144,7 +143,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "FormatHandler.cs",
               "DocumentMoniker": "C:\\Users\\adolf\\OneDrive\\Desktop\\ctrl_alt_delet\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Business Layer\\FormatHandler.cs",
               "RelativeDocumentMoniker": "Business Layer\\FormatHandler.cs",
@@ -156,7 +155,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "FileHandler.cs",
               "DocumentMoniker": "C:\\Users\\adolf\\OneDrive\\Desktop\\ctrl_alt_delet\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Data Layer\\FileHandler.cs",
               "RelativeDocumentMoniker": "Data Layer\\FileHandler.cs",
@@ -180,7 +179,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "C:\\Users\\adolf\\OneDrive\\Desktop\\ctrl_alt_delet\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "Form1.Designer.cs",
@@ -188,30 +187,33 @@
               "RelativeToolTip": "Form1.Designer.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T10:19:57.582Z"
+              "WhenOpened": "2025-10-19T10:19:57.582Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\adolf\\OneDrive\\Desktop\\ctrl_alt_delet\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Users\\adolf\\OneDrive\\Desktop\\ctrl_alt_delet\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAYwCEAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAADQAAAAAAAAAAAAwwEgAAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-18T16:58:21.904Z"
+              "WhenOpened": "2025-10-18T16:58:21.904Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\adolf\\OneDrive\\Desktop\\ctrl_alt_delet\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Users\\adolf\\OneDrive\\Desktop\\ctrl_alt_delet\\PRG_282_Ctrl_Alt_Del\\PRG 282 Project\\Form1.cs [Design]",
               "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-18T14:33:22.341Z"
+              "WhenOpened": "2025-10-18T14:33:22.341Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
