@@ -16,12 +16,50 @@ namespace PRG_282_Project
 {
     public partial class Form1 : Form
     {
+
+      public object HeroID { get; private set; }
+      public object Age { get; private set; }
+      public object Superpower { get; private set; }
+      public object ExamScore { get; private set; }
+       
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void btnAddHero_Click_1(object sender, EventArgs e){}
+        public TextBox txtHeroID;
+        public TextBox txtName;
+        public TextBox txtAge;
+        public TextBox txtSuperpower;
+        public TextBox txtExamScore;
+
+        private void btnAddHero_Click_1(object sender, EventArgs e)
+        {
+          try
+           {
+             Add.AddNewHero(
+             txtHeroID.Text,
+             txtName.Text,
+             txtAge.Text,
+             txtSuperpower.Text,
+             txtExamScore.Text
+             );
+
+        MessageBox.Show("Superhero added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        ClearFields();
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+    }
+}
+
+private void ClearFields()
+{
+    throw new NotImplementedException();
+}
+
+}
 
         private void btnViewAll_Click(object sender, EventArgs e)
         {
@@ -159,5 +197,6 @@ namespace PRG_282_Project
      
     }
  }
+
 
 
