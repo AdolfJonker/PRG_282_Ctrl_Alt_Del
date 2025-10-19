@@ -10,39 +10,41 @@ namespace PRG_282_Project.Classes
 {
     internal class Display
     {
-         private string filePath = "superheroes.txt";
+        public List<string[]> LoadSuperheroes()
+        {
+            List<string[]> heroes = new List<string[]>();
+            string filePath = AppConfig.SuperheroesFilePath;
 
-         //METHOD: Reads superheroes from the textfile and returns it as a list
-         //Any UI work (DataGridView) is done in the Form Class
-         public List<string[]> LoadSuperheroes()
-         {
-             List<string[]> heroes = new List<string[]>();
+            try
+            {
+                if (!File.Exists(filePath))
+                {
+                    throw new FileNotFoundException($"Superhero data file not found: {filePath}");
+                }
 
-             try
-             {
-                 //Check if the file exists and then read it line by line
-                 if (File.Exists(filePath))
-                 {
-                     using (StreamReader sr = new StreamReader(filePath))
-                     {
-                         string line;
-                         while ((line = sr.ReadLine()) != null)
-                         {
-                             string[] parts = line.Split(',');
-                             heroes.Add(parts);
-                         }
-                     }
-                 }
-                 else
-                 {
-                     Console.WriteLine("File not found:" + filePath);
-                 }
-             }
-             catch (Exception ex)
-             {
-                 Console.WriteLine(ex.Message);
-             }
-             return heroes;
-         }
+                using (StreamReader sr = new StreamReader(filePath))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        if (string.IsNullOrWhiteSpace(line)) continue;
+                        string[] parts = line.Split(',');
+                        if (parts.Length >= 7)
+                        {
+                            heroes.Add(parts);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Skipping malformed line in file: {line}", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error loading superheroes: {ex.Message}", ex);
+            }
+            return heroes;
+        }
     }
 }

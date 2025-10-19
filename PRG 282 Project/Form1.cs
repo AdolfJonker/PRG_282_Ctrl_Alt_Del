@@ -1,58 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using PRG_282_Project.Presentation_Layer;
 using PRG_282_Project.Data_Layer;
 using PRG_282_Project.Business_Layer;
+using PRG_282_Project.Classes;
 
 namespace PRG_282_Project
 {
     public partial class Form1 : Form
     {
+        private BindingSource bindingSource;
 
-      public object HeroID { get; private set; }
-      public object Age { get; private set; }
-      public object Superpower { get; private set; }
-      public object ExamScore { get; private set; }
-       
         public Form1()
         {
             InitializeComponent();
+            bindingSource = new BindingSource();
+            dgvSuperheroes.DataSource = bindingSource;
+            dgvSuperheroes.SelectionChanged += dgvSuperheroes_SelectionChanged; // Add selection event
         }
 
-        //public TextBox txtHeroID;
-        //public TextBox txtName;
-        //public TextBox txtAge;
-        //public TextBox txtSuperpower;
-        //public TextBox txtExamScore;
+        private void dgvSuperheroes_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvSuperheroes.SelectedRows.Count > 0)
+            {
+                var row = dgvSuperheroes.SelectedRows[0];
+                txtHeroID.Text = row.Cells["colHeroID"].Value?.ToString() ?? "";
+                txtName.Text = row.Cells["colName"].Value?.ToString() ?? "";
+                txtAge.Text = row.Cells["colAge"].Value?.ToString() ?? "";
+                txtSuperpower.Text = row.Cells["colSuperpower"].Value?.ToString() ?? "";
+                txtScore.Text = row.Cells["colExamScore"].Value?.ToString() ?? "";
+                txtRank.Text = row.Cells["colRank"].Value?.ToString() ?? "";
+                txtThreatLevel.Text = row.Cells["colThreatLevel"].Value?.ToString() ?? "";
+            }
+        }
 
         private void btnAddHero_Click_1(object sender, EventArgs e)
         {
-          try
-           {
-             Add.AddNewHero(
-             txtHeroID.Text,
-             txtName.Text,
-             txtAge.Text,
-             txtSuperpower.Text,
-             txtScore.Text
-             );
+            try
+            {
+                Add.AddNewHero(
+                    txtHeroID.Text,
+                    txtName.Text,
+                    txtAge.Text,
+                    txtSuperpower.Text,
+                    txtScore.Text
+                );
 
                 MessageBox.Show("Superhero added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClearFields();
+                btnViewAll_Click(null, null);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-}
+        }
 
         private void ClearFields()
         {
@@ -61,34 +65,38 @@ namespace PRG_282_Project
             txtAge.Text = "";
             txtSuperpower.Text = "";
             txtScore.Text = "";
+            txtRank.Text = "";
+            txtThreatLevel.Text = "";
         }
-
 
         private void btnViewAll_Click(object sender, EventArgs e)
         {
-            Display display = new Display();
-             List<string[]> heroes = display.LoadSuperheroes();
+            try
+            {
+                var fmt = new FormatHandler();
+                var heroes = fmt.FormatData();
+                bindingSource.DataSource = heroes;
 
-             //clear datagrid
-             dgvSuperheroes.Columns.Clear();
-             dgvSuperheroes.Rows.Clear();
+                // Fix DataPropertyName to match Superhero properties
+                colHeroID.DataPropertyName = "heroID";
+                colName.DataPropertyName = "name";
+                colAge.DataPropertyName = "age";
+                colSuperpower.DataPropertyName = "superpower";
+                colExamScore.DataPropertyName = "score";
+                colRank.DataPropertyName = "rank";
+                colThreatLevel.DataPropertyName = "threatLevel";
 
-             //add in the headers
-             dgvSuperheroes.Columns.Add("HeroID", "Hero ID");
-             dgvSuperheroes.Columns.Add("Name", "Name");
-             dgvSuperheroes.Columns.Add("Age", "Age");
-             dgvSuperheroes.Columns.Add("Superpower", "Superpower");
-             dgvSuperheroes.Columns.Add("ExamScore", "Exam Score");
-             dgvSuperheroes.Columns.Add("Rank", "Rank");
-             dgvSuperheroes.Columns.Add("ThreatLevel", "Threat Level");
+                if (heroes.Count == 0)
+                {
+                    MessageBox.Show("No superheroes found in the data file.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
-             //adding each hero record from the list into the datagridview
-             foreach (var hero in heroes)
-             {
-                 dgvSuperheroes.Rows.Add(hero);
-             }
-             //make columns fit into the grid
-             dgvSuperheroes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvSuperheroes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error displaying superheroes: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnUpdateHero_Click(object sender, EventArgs e)
@@ -100,18 +108,19 @@ namespace PRG_282_Project
                 return;
             }
 
-            // Use the Superhero class fields/properties directly
-            var updated = new PRG_282_Project.Business_Layer.Superhero(
+            var updated = new Superhero(
                 heroID: txtHeroID.Text.Trim(),
                 name: txtName.Text.Trim(),
                 age: txtAge.Text.Trim(),
                 superpower: txtSuperpower.Text.Trim(),
-                score: txtScore.Text.Trim()
+                score: txtScore.Text.Trim(),
+                rank: txtRank.Text.Trim(),
+                threatLevel: txtThreatLevel.Text.Trim()
             );
 
             try
             {
-                var mgr = new PRG_282_Project.Classes.Update.SuperheroUpdateManager();
+                var mgr = new Update.SuperheroUpdateManager();
                 bool ok = mgr.UpdateHero(updated);
 
                 if (!ok)
@@ -121,12 +130,11 @@ namespace PRG_282_Project
                     return;
                 }
 
-                // Refresh view and reselect
                 btnViewAll_Click(null, EventArgs.Empty);
                 foreach (DataGridViewRow row in dgvSuperheroes.Rows)
                 {
                     if (row.IsNewRow) continue;
-                    if (string.Equals(row.Cells[0]?.Value?.ToString(), updated.heroID, StringComparison.OrdinalIgnoreCase))
+                    if (string.Equals(row.Cells["colHeroID"].Value?.ToString(), updated.heroID, StringComparison.OrdinalIgnoreCase))
                     {
                         row.Selected = true;
                         dgvSuperheroes.CurrentCell = row.Cells[0];
@@ -145,20 +153,19 @@ namespace PRG_282_Project
             }
         }
 
-
         private void btnDeleteHero_Click(object sender, EventArgs e)
         {
             if (dgvSuperheroes.SelectedRows.Count > 0)
             {
-                // Assuming HeroID is in the first column
-                string heroID = dgvSuperheroes.SelectedRows[0].Cells[0].Value.ToString();
+                string heroID = dgvSuperheroes.SelectedRows[0].Cells["colHeroID"].Value.ToString();
 
-                bool deleted = PRG_282_Project.Classes.Delete.DeleteByHeroID(heroID);
+                bool deleted = Delete.DeleteByHeroID(heroID);
 
                 if (deleted)
                 {
                     MessageBox.Show("Superhero deleted successfully.", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    btnViewAll_Click(null, null); // Refresh the grid
+                    btnViewAll_Click(null, null);
+                    ClearFields();
                 }
                 else
                 {
@@ -171,35 +178,37 @@ namespace PRG_282_Project
             }
         }
 
-        private void btnSummaryReport_Click(object sender, EventArgs e) 
+        private void btnSummaryReport_Click(object sender, EventArgs e)
         {
             try
             {
-                var summary = new PRG_282_Project.Classes.Summary(); // writes summary.txt by default
-                var result = summary.Generate();                    // compute + persist
+                var summary = new Summary();
+                var result = summary.Generate();
+
+                // Populate summary textboxes
+                textBox7.Text = result.TotalHeroes.ToString();
+                textBox9.Text = result.AverageAge.ToString("0.00");
+                textBox10.Text = result.AverageExamScore.ToString("0.00");
+                textBox11.Text = result.CountS.ToString();
+                textBox12.Text = result.CountA.ToString();
+                textBox13.Text = result.CountB.ToString();
+                textBox14.Text = result.CountC.ToString();
 
                 var preview =
-               $@"Summary generated and saved to summary.txt
+$@"Summary generated and saved to {AppConfig.SummaryFilePath}
 
-                 Total heroes    : {result.TotalHeroes}
-                 Average age     : {result.AverageAge:0.00}
-                 Average score   : {result.AverageExamScore:0.00}
-                 Ranks ->  S:{result.CountS}  A:{result.CountA}  B:{result.CountB}  C:{result.CountC}";
+Total heroes    : {result.TotalHeroes}
+Average age     : {result.AverageAge:0.00}
+Average score   : {result.AverageExamScore:0.00}
+Ranks ->  S:{result.CountS}  A:{result.CountA}  B:{result.CountB}  C:{result.CountC}";
 
-                  MessageBox.Show(preview, "Summary Report",
-                      MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(preview, "Summary Report", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Failed to generate summary: " + ex.Message,
                     "Summary Report", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
-
-     
     }
- }
-
-
-
+}

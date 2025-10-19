@@ -10,29 +10,30 @@ namespace PRG_282_Project.Data_Layer
 {
     internal class FileHandler
     {
-         public List<string> ReadFiles()
- {
-     List<string> fileLines = new List<string>();
+        public List<string> ReadFiles()
+        {
+            List<string> fileLines = new List<string>();
+            string filePath = AppConfig.SuperheroesFilePath;
 
-     fileLines = File.ReadAllLines("superheroes.txt").ToList();
+            if (File.Exists(filePath))
+            {
+                fileLines = File.ReadAllLines(filePath).ToList();
+            }
+            return fileLines;
+        }
 
-     return fileLines;
- }
+        public List<string> WriteToFile()
+        {
+            List<string> output = new List<string>();
+            FormatHandler handler = new FormatHandler();
 
-    public List<string> WriteToFile()
-     {
-         List<string> output = new List<string>();
+            foreach (var p in handler.FormatData())
+            {
+                output.Add(p.ToString());
+            }
 
-         FormatHandler handler = new FormatHandler();
-
-         foreach (var p in handler.FormatData())
-         {
-             output.Add(p.ToString());
-         }
-
-         File.WriteAllLines("summary.txt", output);
-
-         return output;
-     }
+            File.WriteAllLines(AppConfig.SummaryFilePath, output);
+            return output;
+        }
     }
 }

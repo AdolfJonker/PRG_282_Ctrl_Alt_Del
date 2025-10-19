@@ -11,18 +11,18 @@ namespace PRG_282_Project.Business_Layer
     internal class FormatHandler
     {
         public List<Superhero> FormatData()
-{
-    List<Superhero> hero = new List<Superhero>();
-
-    FileHandler handler = new FileHandler();
-    foreach (var item in handler.ReadFiles())
-    {
-        string[] p = item.Split(',');
-
-        hero.Add(new Superhero(p[0], p[1], p[2], p[3], p[4]));
-    }
-
-    return hero;
-}
+        {
+            List<Superhero> heroes = new List<Superhero>();
+            FileHandler handler = new FileHandler();
+            foreach (var item in handler.ReadFiles())
+            {
+                string[] p = item.Split(',');
+                if (p.Length >= 7) // Ensure all fields are present
+                {
+                    heroes.Add(new Superhero(p[0], p[1], p[2], p[3], p[4]));
+                }
+            }
+            return heroes;
+        }
     }
 }

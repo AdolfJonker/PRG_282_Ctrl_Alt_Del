@@ -9,22 +9,16 @@ namespace PRG_282_Project.Classes
 {
     internal class Update
     {
-        // Manager that loads via FormatHandler (data handler)
-        // and saves back to superheroes.txt, then refreshes summary via FileHandler.
         public class SuperheroUpdateManager
         {
-            private const string DataPath = "superheroes.txt";
+            private readonly string DataPath = AppConfig.SuperheroesFilePath;
 
-
-            /// Loads all heroes using the existing FormatHandler (data handler).
             public List<Superhero> LoadAllHeroes()
             {
                 var fmt = new FormatHandler();
-                return fmt.FormatData(); // returns List<Superhero>
+                return fmt.FormatData();
             }
 
-
-            /// Finds a hero by ID (matches Business_Layer.Superhero.heroID).
             public Superhero FindHeroById(string heroId)
             {
                 if (string.IsNullOrWhiteSpace(heroId))
@@ -38,27 +32,23 @@ namespace PRG_282_Project.Classes
                 if (updatedHero == null || string.IsNullOrWhiteSpace(updatedHero.heroID))
                     return false;
 
-                // Load (via data handler)
-                var fmt = new FormatHandler();
-                var heroes = fmt.FormatData();
-
-                // Find by ID (case-sensitive to match file content)
+                var heroes = LoadAllHeroes();
                 int idx = heroes.FindIndex(h => h.heroID == updatedHero.heroID);
                 if (idx < 0)
                     return false;
 
-                // Replace in-memory
                 heroes[idx] = updatedHero;
 
-                // Persist back to the source file (CSV lines).
-                // We keep the exact column order your FormatHandler expects: id,name,age,superpower,score
                 var csvLines = heroes.Select(h =>
-                    $"{h.heroID},{h.name},{h.age},{h.superpower},{h.score}");
+                {
+                    int score = int.TryParse(h.score, out int s) ? s : 0;
+                    string rank = Add.CalculateRank(score);
+                    string threatLevel = Add.CalculateThreatLevel(rank);
+                    return $"{h.heroID},{h.name},{h.age},{h.superpower},{h.score},{rank},{threatLevel}";
+                });
 
                 File.WriteAllLines(DataPath, csvLines);
 
-                // regenerate your summary.txt using your FileHandler
-                // (this uses your existing pipeline and respects your handlers).
                 var fh = new FileHandler();
                 fh.WriteToFile();
 

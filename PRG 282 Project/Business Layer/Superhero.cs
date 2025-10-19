@@ -8,30 +8,28 @@ namespace PRG_282_Project.Business_Layer
 {
     public class Superhero
     {
-         public string heroID { get; set; }
-         public string name { get; set; }
-         public string age { get; set; }
-         public string superpower { get; set; }
-         public string score { get; set; }
+        public string heroID { get; set; }
+        public string name { get; set; }
+        public string age { get; set; }
+        public string superpower { get; set; }
+        public string score { get; set; }
+        public string rank { get; set; }
+        public string threatLevel { get; set; }
 
+        public Superhero(string heroID, string name, string age, string superpower, string score, string rank = "", string threatLevel = "")
+        {
+            this.heroID = heroID;
+            this.name = name;
+            this.age = age;
+            this.superpower = superpower;
+            this.score = score;
+            this.rank = rank;
+            this.threatLevel = threatLevel;
+        }
 
-         public Superhero(string heroID, string name, string age, string superpower, string score)
-         {
-             this.heroID = heroID;
-             this.name = name;
-             this.age = age;
-             this.superpower = superpower;
-             this.score = score;
-         }
-
-         internal static void AddNewHero(object text1, object text2, object text3, object text4, object text5)
-         {
-             throw new NotImplementedException();
-         }
-
-         //public override string ToString()
-         //{
-         //return $"HeroID: {this.heroID} | Name: {this.name} | Age: {this.age} | Superpower: {this.superpower} | Score: {this.score}";
-         //}
+        public override string ToString()
+        {
+            return $"{heroID},{name},{age},{superpower},{score},{rank},{threatLevel}";
+        }
     }
 }

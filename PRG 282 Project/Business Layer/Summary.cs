@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using PRG_282_Project.Business_Layer; // Superhero
-using PRG_282_Project.Data_Layer;     // FormatHandler, FileHandler
+using PRG_282_Project.Business_Layer;
+using PRG_282_Project.Data_Layer;
 
 namespace PRG_282_Project.Classes
 {
-
     public sealed class SummaryResult
     {
         public int TotalHeroes { get; set; }
@@ -21,55 +20,39 @@ namespace PRG_282_Project.Classes
 
         public override string ToString()
         {
-            return
-$@"=== Superhero Summary Report ===
-Generated: {DateTime.Now:yyyy-MM-dd HH:mm}
+                return
+            $@"=== Superhero Summary Report ===
+            Generated: {DateTime.Now:yyyy-MM-dd HH:mm}
 
-  Total heroes           : {TotalHeroes}
-  Average age            : {AverageAge:0.00}
-  Average exam score     : {AverageExamScore:0.00}
+              Total heroes           : {TotalHeroes}
+              Average age            : {AverageAge:0.00}
+              Average exam score     : {AverageExamScore:0.00}
 
-Heroes per rank (stored values):
-  S : {CountS}
-  A : {CountA}
-  B : {CountB}
-  C : {CountC}";
+            Heroes per rank (stored values):
+              S : {CountS}
+              A : {CountA}
+              B : {CountB}
+              C : {CountC}";
+                    }
         }
-    }
-
-
-    // Reads via FormatHandler, uses stored Rank from file (via FileHandler),
-    // computes summary, writes summary.txt, returns values for UI.
 
     public sealed class Summary
     {
         private readonly string _outPath;
 
-        public Summary(string outPath = "summary.txt")
+        public Summary(string outPath = null)
         {
-            _outPath = outPath;
+            _outPath = outPath ?? AppConfig.SummaryFilePath;
         }
 
         public SummaryResult Generate()
         {
-            // Load heroes as objects (id/name/age/superpower/score)
             var heroes = LoadHeroes();
-
-            // Build a map of HeroID -> stored Rank from the raw file lines
             var rankById = LoadStoredRanks();
-
-            // Compute stats using stored ranks
             var result = Compute(heroes, rankById);
-
-            // Persist human-readable summary
             Save(result, _outPath);
-
             return result;
         }
-
-        // -------------------------
-        // Internals
-        // -------------------------
 
         private static List<Superhero> LoadHeroes()
         {
@@ -77,13 +60,6 @@ Heroes per rank (stored values):
             return fmt.FormatData() ?? new List<Superhero>();
         }
 
-        /// <summary>
-        /// Reads raw lines via FileHandler and extracts stored Rank.
-        /// Expected formats (both supported):
-        ///   [0]Id,[1]Name,[2]Age,[3]Superpower,[4]Score,[5]Rank
-        ///   or legacy with extra columns (Rank still at index 5).
-        /// If rank is missing, we do NOT derive; we simply skip counting it (treated as 'C' below).
-        /// </summary>
         private static Dictionary<string, string> LoadStoredRanks()
         {
             var map = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
@@ -91,12 +67,11 @@ Heroes per rank (stored values):
             foreach (var raw in fh.ReadFiles() ?? new List<string>())
             {
                 if (string.IsNullOrWhiteSpace(raw)) continue;
-
                 var parts = raw.Split(',');
                 if (parts.Length >= 6)
                 {
                     var id = parts[0].Trim();
-                    var rank = NormalizeRank(parts[5]); // trust stored, just normalize
+                    var rank = NormalizeRank(parts[5]);
                     if (!string.IsNullOrEmpty(id))
                         map[id] = rank;
                 }
@@ -115,15 +90,12 @@ Heroes per rank (stored values):
 
             foreach (var h in arr)
             {
-                // Age
                 if (int.TryParse(h.age?.Trim(), NumberStyles.Integer, CultureInfo.InvariantCulture, out var ageVal))
                     ages.Add(ageVal);
 
-                // Score
                 if (int.TryParse(h.score?.Trim(), NumberStyles.Integer, CultureInfo.InvariantCulture, out var scoreVal))
                     scores.Add(scoreVal);
 
-                // Stored rank (default to C only if missing/empty)
                 string rank = null;
                 if (!string.IsNullOrWhiteSpace(h.heroID))
                     rankById.TryGetValue(h.heroID, out rank);
@@ -135,7 +107,7 @@ Heroes per rank (stored values):
                     case "S": countS++; break;
                     case "A": countA++; break;
                     case "B": countB++; break;
-                    default: countC++; break; // includes null/empty -> treated as C
+                    default: countC++; break;
                 }
             }
 
@@ -163,10 +135,6 @@ Heroes per rank (stored values):
             File.WriteAllText(outPath, s.ToString());
         }
 
-        /// <summary>
-        /// Normalizes stored rank strings to "S", "A", "B", or "C".
-        /// Accepts values like "S", "S-Rank", "rank a", etc.
-        /// </summary>
         private static string NormalizeRank(string raw)
         {
             if (string.IsNullOrWhiteSpace(raw)) return "C";
@@ -176,4 +144,3 @@ Heroes per rank (stored values):
         }
     }
 }
-

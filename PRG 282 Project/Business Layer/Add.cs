@@ -24,28 +24,27 @@ namespace PRG_282_Project
                 }
                 if (!int.TryParse(age, out int ageValue) || ageValue <= 0)
                 {
-                    throw new ArgumentException("You cannot be a negative age.");
+                    throw new ArgumentException("Age must be a positive number.");
                 }
                 if (!int.TryParse(score, out int scoreValue) || scoreValue < 0 || scoreValue > 100)
                 {
                     throw new ArgumentException("Score must be a number between 0 and 100.");
                 }
                 string rank = CalculateRank(scoreValue);
-                string threatLevel = CalculateRank(rank);
+                string threatLevel = CalculateThreatLevel(rank);
 
                 string heroData = $"{heroID},{name},{ageValue},{superpower},{scoreValue},{rank},{threatLevel}";
 
-                string filePath = "superheroes.txt";
+                string filePath = AppConfig.SuperheroesFilePath;
                 File.AppendAllText(filePath, heroData + Environment.NewLine);
             }
             catch (Exception ex)
             {
-                throw new Exception("Error adding superhero:");
+                throw new Exception($"Error adding superhero: {ex.Message}", ex);
             }
         }
 
-        //Rank Calculator
-        static string CalculateRank(int score)
+        public static string CalculateRank(int score)
         {
             if (score >= 81) return "S-Rank";
             if (score >= 61) return "A-Rank";
@@ -53,8 +52,7 @@ namespace PRG_282_Project
             return "C-Rank";
         }
 
-        //Threat Calculator
-        private static string CalculateRank(string rank)
+        public static string CalculateThreatLevel(string rank)
         {
             switch (rank)
             {

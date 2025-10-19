@@ -2,15 +2,8 @@
 {
     partial class Form1
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,12 +13,6 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
@@ -109,6 +96,7 @@
             this.txtThreatLevel.Name = "txtThreatLevel";
             this.txtThreatLevel.Size = new System.Drawing.Size(185, 22);
             this.txtThreatLevel.TabIndex = 8;
+            this.txtThreatLevel.ReadOnly = true; // Make read-only as it's calculated
             // 
             // txtHeroID
             // 
@@ -132,6 +120,7 @@
             this.txtRank.Name = "txtRank";
             this.txtRank.Size = new System.Drawing.Size(185, 22);
             this.txtRank.TabIndex = 6;
+            this.txtRank.ReadOnly = true; // Make read-only as it's calculated
             // 
             // lblRank
             // 
@@ -300,7 +289,7 @@
             // 
             // colHeroID
             // 
-            this.colHeroID.DataPropertyName = "HeroID";
+            this.colHeroID.DataPropertyName = "heroID";
             this.colHeroID.HeaderText = "Hero ID";
             this.colHeroID.MinimumWidth = 6;
             this.colHeroID.Name = "colHeroID";
@@ -308,7 +297,7 @@
             // 
             // colName
             // 
-            this.colName.DataPropertyName = "Name";
+            this.colName.DataPropertyName = "name";
             this.colName.HeaderText = "Name";
             this.colName.MinimumWidth = 6;
             this.colName.Name = "colName";
@@ -316,7 +305,7 @@
             // 
             // colAge
             // 
-            this.colAge.DataPropertyName = "Age";
+            this.colAge.DataPropertyName = "age";
             this.colAge.HeaderText = "Age";
             this.colAge.MinimumWidth = 6;
             this.colAge.Name = "colAge";
@@ -324,7 +313,7 @@
             // 
             // colSuperpower
             // 
-            this.colSuperpower.DataPropertyName = "Superpower";
+            this.colSuperpower.DataPropertyName = "superpower";
             this.colSuperpower.HeaderText = "Superpower";
             this.colSuperpower.MinimumWidth = 6;
             this.colSuperpower.Name = "colSuperpower";
@@ -332,7 +321,7 @@
             // 
             // colExamScore
             // 
-            this.colExamScore.DataPropertyName = "Exam Score";
+            this.colExamScore.DataPropertyName = "score";
             this.colExamScore.HeaderText = "Exam Score";
             this.colExamScore.MinimumWidth = 6;
             this.colExamScore.Name = "colExamScore";
@@ -340,7 +329,7 @@
             // 
             // colRank
             // 
-            this.colRank.DataPropertyName = "Rank";
+            this.colRank.DataPropertyName = "rank";
             this.colRank.HeaderText = "Rank";
             this.colRank.MinimumWidth = 6;
             this.colRank.Name = "colRank";
@@ -348,7 +337,7 @@
             // 
             // colThreatLevel
             // 
-            this.colThreatLevel.DataPropertyName = "Threat Level";
+            this.colThreatLevel.DataPropertyName = "threatLevel";
             this.colThreatLevel.HeaderText = "Threat Level";
             this.colThreatLevel.MinimumWidth = 6;
             this.colThreatLevel.Name = "colThreatLevel";
@@ -539,10 +528,7 @@
             this.grpSummary.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
-
-        #endregion
 
         private System.Windows.Forms.GroupBox grpHeroDetails;
         private System.Windows.Forms.Label lblThreatLevel;
@@ -591,4 +577,3 @@
         private System.Windows.Forms.Label lblHeading;
     }
 }
-

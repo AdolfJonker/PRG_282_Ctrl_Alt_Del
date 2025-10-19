@@ -12,12 +12,18 @@ namespace PRG_282_Project.Classes
     {
         public static bool DeleteByHeroID(string heroID)
         {
-            string filePath = "superheroes.txt";
+            string filePath = AppConfig.SuperheroesFilePath;
             string tempFile = "superheroes_temp.txt";
             bool found = false;
 
             try
             {
+                if (!File.Exists(filePath))
+                {
+                    MessageBox.Show($"Superhero data file not found: {filePath}", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
                 using (var sr = new StreamReader(filePath))
                 using (var sw = new StreamWriter(tempFile))
                 {
@@ -39,7 +45,6 @@ namespace PRG_282_Project.Classes
             }
             catch (Exception ex)
             {
-                // Use MessageBox for user feedback in Windows Forms
                 MessageBox.Show($"Error deleting superhero: {ex.Message}", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
