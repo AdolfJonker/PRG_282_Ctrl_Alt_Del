@@ -22,7 +22,32 @@ namespace PRG_282_Project
 
         private void btnAddHero_Click_1(object sender, EventArgs e){}
 
-        private void btnViewAll_Click(object sender, EventArgs e){}
+        private void btnViewAll_Click(object sender, EventArgs e)
+        {
+            Display display = new Display();
+             List<string[]> heroes = display.LoadSuperheroes();
+
+             //clear datagrid
+             dgvSuperheroes.Columns.Clear();
+             dgvSuperheroes.Rows.Clear();
+
+             //add in the headers
+             dgvSuperheroes.Columns.Add("HeroID", "Hero ID");
+             dgvSuperheroes.Columns.Add("Name", "Name");
+             dgvSuperheroes.Columns.Add("Age", "Age");
+             dgvSuperheroes.Columns.Add("Superpower", "Superpower");
+             dgvSuperheroes.Columns.Add("ExamScore", "Exam Score");
+             dgvSuperheroes.Columns.Add("Rank", "Rank");
+             dgvSuperheroes.Columns.Add("ThreatLevel", "Threat Level");
+
+             //adding each hero record from the list into the datagridview
+             foreach (var hero in heroes)
+             {
+                 dgvSuperheroes.Rows.Add(hero);
+             }
+             //make columns fit into the grid
+             dgvSuperheroes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
 
         private void btnUpdateHero_Click(object sender, EventArgs e){ }
 
@@ -55,4 +80,5 @@ namespace PRG_282_Project
         //}
     }
  }
+
 
