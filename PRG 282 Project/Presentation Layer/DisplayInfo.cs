@@ -8,5 +8,10 @@ namespace PRG_282_Project.Presentation_Layer
 {
     internal class DisplayInfo
     {
+         public List<Superhero> GetHero()
+ {
+     FormatHandler handler = new FormatHandler();
+     return handler.FormatData();
+ }
     }
 }
