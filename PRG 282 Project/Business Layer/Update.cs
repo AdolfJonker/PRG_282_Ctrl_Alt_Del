@@ -1,108 +1,69 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.IO;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq;
+using PRG_282_Project.Business_Layer; // Superhero, FormatHandler
+using PRG_282_Project.Data_Layer;     // FileHandler
 
 namespace PRG_282_Project.Classes
 {
     internal class Update
     {
-        //public class Superhero
-        //{
-        //    public string HeroID { get; set; }
-        //    public string Name { get; set; }
-        //    public int Age { get; set; }
-        //    public string Superpower { get; set; }
-        //    public int ExamScore { get; set; }
-        //    public string Rank { get; set; }
-        //    public string ThreatLevel { get; set; }
+        // Manager that loads via FormatHandler (data handler)
+        // and saves back to superheroes.txt, then refreshes summary via FileHandler.
+        public class SuperheroUpdateManager
+        {
+            private const string DataPath = "superheroes.txt";
 
-        //    public static string GetRank(int score)
-        //    {
-        //        if (score >= 90) return "S";
-        //        else if (score >= 75) return "A";
-        //        else if (score >= 60) return "B";
-        //        else if (score >= 40) return "C";
-        //        else return "D";
-        //    }
 
-        //    public static string GetThreatLevel(string rank)
-        //    {
-        //        return rank switch
-        //        {
-        //            "S" => "Planetary",
-        //            "A" => "National",
-        //            "B" => "City",
-        //            "C" => "Street",
-        //            "D" => "Training",
-        //            _ => "Unknown"
-        //        };
-        //    }
+            /// Loads all heroes using the existing FormatHandler (data handler).
+            public List<Superhero> LoadAllHeroes()
+            {
+                var fmt = new FormatHandler();
+                return fmt.FormatData(); // returns List<Superhero>
+            }
 
-        //    public static Superhero FromCsv(string line)
-        //    {
-        //        var parts = line.Split(',');
 
-        //        return new Superhero
-        //        {
-        //            HeroID = parts[0],
-        //            Name = parts[1],
-        //            Age = int.Parse(parts[2]),
-        //            Superpower = parts[3],
-        //            ExamScore = int.Parse(parts[4]),
-        //            Rank = parts[5],
-        //            ThreatLevel = parts[6]
-        //        };
-        //    }
+            /// Finds a hero by ID (matches Business_Layer.Superhero.heroID).
+            public Superhero FindHeroById(string heroId)
+            {
+                if (string.IsNullOrWhiteSpace(heroId))
+                    return null;
 
-        //    public string ToCsv()
-        //    {
-        //        return $"{HeroID},{Name},{Age},{Superpower},{ExamScore},{Rank},{ThreatLevel}";
-        //    }
-        //}
+                return LoadAllHeroes().FirstOrDefault(h => h.heroID == heroId);
+            }
 
-        //public class SuperheroUpdateManager
-        //{
-        //    private string filePath = "superheroes.txt";
+            public bool UpdateHero(Superhero updatedHero)
+            {
+                if (updatedHero == null || string.IsNullOrWhiteSpace(updatedHero.heroID))
+                    return false;
 
-        //    public List<Superhero> LoadAllHeroes()
-        //    {
-        //        if (!File.Exists(filePath))
-        //            return new List<Superhero>();
+                // Load (via data handler)
+                var fmt = new FormatHandler();
+                var heroes = fmt.FormatData();
 
-        //        return File.ReadAllLines(filePath)
-        //                   .Where(line => !string.IsNullOrWhiteSpace(line))
-        //                   .Select(Superhero.FromCsv)
-        //                   .ToList();
-        //    }
+                // Find by ID (case-sensitive to match file content)
+                int idx = heroes.FindIndex(h => h.heroID == updatedHero.heroID);
+                if (idx < 0)
+                    return false;
 
-        //    public Superhero FindHeroById(string heroId)
-        //    {
-        //        var heroes = LoadAllHeroes();
-        //        return heroes.FirstOrDefault(h => h.HeroID == heroId);
-        //    }
+                // Replace in-memory
+                heroes[idx] = updatedHero;
 
-        //    public bool UpdateHero(Superhero updatedHero)
-        //    {
-        //        var heroes = LoadAllHeroes();
-        //        var index = heroes.FindIndex(h => h.HeroID == updatedHero.HeroID);
+                // Persist back to the source file (CSV lines).
+                // We keep the exact column order your FormatHandler expects: id,name,age,superpower,score
+                var csvLines = heroes.Select(h =>
+                    $"{h.heroID},{h.name},{h.age},{h.superpower},{h.score}");
 
-        //        if (index == -1)
-        //            return false;
+                File.WriteAllLines(DataPath, csvLines);
 
-        //        // Recalculate rank and threat level
-        //        updatedHero.Rank = Superhero.GetRank(updatedHero.ExamScore);
-        //        updatedHero.ThreatLevel = Superhero.GetThreatLevel(updatedHero.Rank);
+                // regenerate your summary.txt using your FileHandler
+                // (this uses your existing pipeline and respects your handlers).
+                var fh = new FileHandler();
+                fh.WriteToFile();
 
-        //        // Replace old record
-        //        heroes[index] = updatedHero;
-
-        //        // Save back to file
-        //        File.WriteAllLines(filePath, heroes.Select(h => h.ToCsv()));
-        //        return true;
-        //    }
-        //}
+                return true;
+            }
+        }
     }
 }
