@@ -10,42 +10,39 @@ namespace PRG_282_Project.Classes
 {
     internal class Display
     {
- //        string FilePath = "superheroes.txt";
- //        List<string[]> heroes = new List<string[]>();
+         private string filePath = "superheroes.txt";
 
- //try
- //{
- //   using (StreamReader sr = new StreamReader(filePath))
- //    {
- //        string line;
+ //METHOD: Reads superheroes from the textfile and returns it as a list
+ //Any UI work (DataGridView) is done in the Form Class
+ public List<string[]> LoadSuperheroes()
+ {
+     List<string[]> heroes = new List<string[]>();
 
- //        while((line = sr.ReadLine()) != null)
- //        {
- //            string[] parts = line.Split(',');//splitting each line into different fields
- //            heroes.Add(parts);//add the fields to a list
- //        }
- //    }
-
- //    dataGridViewHeroes.Columns.Clear();
- //    dataGridViewHeroes.Rows.Clear();
-
- //    //Column Headers
- //    dataGridViewHeroes.Columns.Add("HeroID", "Hero ID");
- //    dataGridViewHeroes.Columns.Add("Name", "Name");
- //    dataGridViewHeroes.Columns.Add("Age", "Age");
- //    dataGridViewHeroes.Columns.Add("Superpower", "Superpower");
- //    dataGridViewHeroes.Columns.Add("ExamScore", "Exam Score");
- //    dataGridViewHeroes.Columns.Add("Rank", "Rank");
- //    dataGridViewHeroes.Columns.Add("ThreatLevel", "Threat Level");
-
- //    foreach (var h in heroes)
- //    {
- //        dataGridViewHeroes.Rows.Add(h); //add each hero in a new line each time in DatGridView
- //    }
- //}
- //catch (Exception ex) //error handling to ensure an error message shows when something goes wrong
- //{
- //    MessageBox.Show("Error reading file: " + ex.Message);
- //}
-}
+     try
+     {
+         //Check if the file exists and then read it line by line
+         if (File.Exists(filePath))
+         {
+             using (StreamReader sr = new StreamReader(filePath))
+             {
+                 string line;
+                 while ((line = sr.ReadLine()) != null)
+                 {
+                     string[] parts = line.Split(',');
+                     heroes.Add(parts);
+                 }
+             }
+         }
+         else
+         {
+             Console.WriteLine("File not found:" + filePath);
+         }
+     }
+     catch (Exception ex)
+     {
+         Console.WriteLine(ex.Message);
+     }
+     return heroes;
+ }
+    }
 }
