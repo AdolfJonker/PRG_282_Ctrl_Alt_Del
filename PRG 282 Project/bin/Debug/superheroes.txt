@@ -1,1 +1,2 @@
-1,Superman,31,Flight,95,S-Rank,Finals Week (threat to the entire academy)
+1,Superman,32,Flight,90,S-Rank,Finals Week
+2,Spiderman,28,Webshooting,75,A-Rank,Midterm Madness

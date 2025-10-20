@@ -38,13 +38,6 @@
             this.btnSummaryReport = new System.Windows.Forms.Button();
             this.grpSuperheroes = new System.Windows.Forms.GroupBox();
             this.dgvSuperheroes = new System.Windows.Forms.DataGridView();
-            this.colHeroID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSuperpower = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colExamScore = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRank = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colThreatLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpSummary = new System.Windows.Forms.GroupBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
@@ -61,6 +54,13 @@
             this.lblAverageAge = new System.Windows.Forms.Label();
             this.lblTotalHeroes = new System.Windows.Forms.Label();
             this.lblHeading = new System.Windows.Forms.Label();
+            this.colHeroID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSuperpower = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colExamScore = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRank = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colThreatLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpHeroDetails.SuspendLayout();
             this.grpSuperheroes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSuperheroes)).BeginInit();
@@ -94,9 +94,9 @@
             // 
             this.txtThreatLevel.Location = new System.Drawing.Point(135, 247);
             this.txtThreatLevel.Name = "txtThreatLevel";
+            this.txtThreatLevel.ReadOnly = true;
             this.txtThreatLevel.Size = new System.Drawing.Size(185, 22);
             this.txtThreatLevel.TabIndex = 8;
-            this.txtThreatLevel.ReadOnly = true; // Make read-only as it's calculated
             // 
             // txtHeroID
             // 
@@ -118,9 +118,9 @@
             // 
             this.txtRank.Location = new System.Drawing.Point(135, 212);
             this.txtRank.Name = "txtRank";
+            this.txtRank.ReadOnly = true;
             this.txtRank.Size = new System.Drawing.Size(185, 22);
             this.txtRank.TabIndex = 6;
-            this.txtRank.ReadOnly = true; // Make read-only as it's calculated
             // 
             // lblRank
             // 
@@ -287,62 +287,6 @@
             this.dgvSuperheroes.Size = new System.Drawing.Size(643, 249);
             this.dgvSuperheroes.TabIndex = 0;
             // 
-            // colHeroID
-            // 
-            this.colHeroID.DataPropertyName = "heroID";
-            this.colHeroID.HeaderText = "Hero ID";
-            this.colHeroID.MinimumWidth = 6;
-            this.colHeroID.Name = "colHeroID";
-            this.colHeroID.ReadOnly = true;
-            // 
-            // colName
-            // 
-            this.colName.DataPropertyName = "name";
-            this.colName.HeaderText = "Name";
-            this.colName.MinimumWidth = 6;
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
-            // 
-            // colAge
-            // 
-            this.colAge.DataPropertyName = "age";
-            this.colAge.HeaderText = "Age";
-            this.colAge.MinimumWidth = 6;
-            this.colAge.Name = "colAge";
-            this.colAge.ReadOnly = true;
-            // 
-            // colSuperpower
-            // 
-            this.colSuperpower.DataPropertyName = "superpower";
-            this.colSuperpower.HeaderText = "Superpower";
-            this.colSuperpower.MinimumWidth = 6;
-            this.colSuperpower.Name = "colSuperpower";
-            this.colSuperpower.ReadOnly = true;
-            // 
-            // colExamScore
-            // 
-            this.colExamScore.DataPropertyName = "score";
-            this.colExamScore.HeaderText = "Exam Score";
-            this.colExamScore.MinimumWidth = 6;
-            this.colExamScore.Name = "colExamScore";
-            this.colExamScore.ReadOnly = true;
-            // 
-            // colRank
-            // 
-            this.colRank.DataPropertyName = "rank";
-            this.colRank.HeaderText = "Rank";
-            this.colRank.MinimumWidth = 6;
-            this.colRank.Name = "colRank";
-            this.colRank.ReadOnly = true;
-            // 
-            // colThreatLevel
-            // 
-            this.colThreatLevel.DataPropertyName = "threatLevel";
-            this.colThreatLevel.HeaderText = "Threat Level";
-            this.colThreatLevel.MinimumWidth = 6;
-            this.colThreatLevel.Name = "colThreatLevel";
-            this.colThreatLevel.ReadOnly = true;
-            // 
             // grpSummary
             // 
             this.grpSummary.Controls.Add(this.textBox14);
@@ -502,6 +446,68 @@
             this.lblHeading.TabIndex = 15;
             this.lblHeading.Text = "One Kick Heroes Academy: Superhero Database";
             // 
+            // colHeroID
+            // 
+            this.colHeroID.DataPropertyName = "heroID";
+            this.colHeroID.HeaderText = "Hero ID";
+            this.colHeroID.MinimumWidth = 6;
+            this.colHeroID.Name = "colHeroID";
+            this.colHeroID.ReadOnly = true;
+            // 
+            // colName
+            // 
+            this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colName.DataPropertyName = "name";
+            this.colName.HeaderText = "Name";
+            this.colName.MinimumWidth = 6;
+            this.colName.Name = "colName";
+            this.colName.ReadOnly = true;
+            this.colName.Width = 73;
+            // 
+            // colAge
+            // 
+            this.colAge.DataPropertyName = "age";
+            this.colAge.HeaderText = "Age";
+            this.colAge.MinimumWidth = 6;
+            this.colAge.Name = "colAge";
+            this.colAge.ReadOnly = true;
+            // 
+            // colSuperpower
+            // 
+            this.colSuperpower.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colSuperpower.DataPropertyName = "superpower";
+            this.colSuperpower.HeaderText = "Superpower";
+            this.colSuperpower.MinimumWidth = 6;
+            this.colSuperpower.Name = "colSuperpower";
+            this.colSuperpower.ReadOnly = true;
+            this.colSuperpower.Width = 109;
+            // 
+            // colExamScore
+            // 
+            this.colExamScore.DataPropertyName = "score";
+            this.colExamScore.HeaderText = "Exam Score";
+            this.colExamScore.MinimumWidth = 6;
+            this.colExamScore.Name = "colExamScore";
+            this.colExamScore.ReadOnly = true;
+            // 
+            // colRank
+            // 
+            this.colRank.DataPropertyName = "rank";
+            this.colRank.HeaderText = "Rank";
+            this.colRank.MinimumWidth = 6;
+            this.colRank.Name = "colRank";
+            this.colRank.ReadOnly = true;
+            // 
+            // colThreatLevel
+            // 
+            this.colThreatLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colThreatLevel.DataPropertyName = "threatLevel";
+            this.colThreatLevel.HeaderText = "Threat Level";
+            this.colThreatLevel.MinimumWidth = 6;
+            this.colThreatLevel.Name = "colThreatLevel";
+            this.colThreatLevel.ReadOnly = true;
+            this.colThreatLevel.Width = 102;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -528,6 +534,7 @@
             this.grpSummary.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private System.Windows.Forms.GroupBox grpHeroDetails;
@@ -559,13 +566,6 @@
         private System.Windows.Forms.Label lblTotalHeroes;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.DataGridView dgvSuperheroes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colHeroID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAge;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSuperpower;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colExamScore;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRank;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colThreatLevel;
         private System.Windows.Forms.Label lblCRank;
         private System.Windows.Forms.Label lblBRank;
         private System.Windows.Forms.Label lblARank;
@@ -575,5 +575,12 @@
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.Label lblHeading;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colHeroID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAge;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSuperpower;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colExamScore;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRank;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colThreatLevel;
     }
 }

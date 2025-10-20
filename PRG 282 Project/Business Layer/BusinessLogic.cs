@@ -28,10 +28,10 @@ namespace PRG_282_Project.Business_Layer
         {
             switch (rank)
             {
-                case "S-Rank": return "Finals Week (threat to the entire academy)";
-                case "A-Rank": return "Midterm Madness (threat to a department)";
-                case "B-Rank": return "Group Project Gone Wrong (threat to a study group)";
-                case "C-Rank": return "Pop Quiz (potential threat to an individual student)";
+                case "S-Rank": return "Finals Week";
+                case "A-Rank": return "Midterm Madness";
+                case "B-Rank": return "Group Project Gone Wrong";
+                case "C-Rank": return "Pop Quiz";
                 default: throw new ArgumentException("Invalid rank.");
             }
         }
