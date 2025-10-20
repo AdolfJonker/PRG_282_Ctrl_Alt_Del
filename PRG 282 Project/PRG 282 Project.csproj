@@ -47,14 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppConfig.cs" />
-    <Compile Include="Business Layer\Add.cs" />
-    <Compile Include="Business Layer\Delete.cs" />
-    <Compile Include="Business Layer\Display.cs" />
-    <Compile Include="Business Layer\FormatHandler.cs" />
-    <Compile Include="Business Layer\Summary.cs" />
+    <Compile Include="Business Layer\BusinessLogic.cs" />
     <Compile Include="Business Layer\Superhero.cs" />
-    <Compile Include="Business Layer\Update.cs" />
     <Compile Include="Data Layer\FileHandler.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -62,7 +56,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation Layer\DisplayInfo.cs" />
     <Compile Include="Presentation Layer\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

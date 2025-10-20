@@ -8,28 +8,12 @@ namespace PRG_282_Project.Business_Layer
 {
     public class Superhero
     {
-        public string heroID { get; set; }
-        public string name { get; set; }
-        public string age { get; set; }
-        public string superpower { get; set; }
-        public string score { get; set; }
-        public string rank { get; set; }
-        public string threatLevel { get; set; }
-
-        public Superhero(string heroID, string name, string age, string superpower, string score, string rank = "", string threatLevel = "")
-        {
-            this.heroID = heroID;
-            this.name = name;
-            this.age = age;
-            this.superpower = superpower;
-            this.score = score;
-            this.rank = rank;
-            this.threatLevel = threatLevel;
-        }
-
-        public override string ToString()
-        {
-            return $"{heroID},{name},{age},{superpower},{score},{rank},{threatLevel}";
-        }
+        public string HeroID { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public string Superpower { get; set; }
+        public double ExamScore { get; set; }
+        public string Rank { get; set; }
+        public string ThreatLevel { get; set; }
     }
 }
