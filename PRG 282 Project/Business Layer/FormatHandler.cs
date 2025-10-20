@@ -19,7 +19,7 @@ namespace PRG_282_Project.Business_Layer
                 string[] p = item.Split(',');
                 if (p.Length >= 7) // Ensure all fields are present
                 {
-                    heroes.Add(new Superhero(p[0], p[1], p[2], p[3], p[4]));
+                    heroes.Add(new Superhero(p[0], p[1], p[2], p[3], p[4], p[5], p[6]));
                 }
             }
             return heroes;
