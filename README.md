@@ -1,5 +1,4 @@
-# PRG282: SuperHero Database System
-
-Create a Version-Controlled Superhero Database System using Windows Forms and GitHub.
-Your team plays a major role in the special HQ unit for Belgium Campuses’ sister campus, One Kick Heroes Academy. While the academy focuses on training aspiring heroes through hero courses with exams determining ranks and abilities to handle various threats - your team at HQ steps in to help manage and coordinate all the trainee records. Up until this point, assessors have struggled with paper-based documents during the entry exams, assessing students abilities and feeding the results into the old system. It has been chaotic, seeing that they can’t keep up with processing the reports. Build a C# app to track hero details, auto-calculate ranks based on exam scores, and generate reports. It's your unit's way to support the heroes-in-training, making sure they're prepped for everything from pop quizzes to finals week mayhem without any data disasters.
-Develop a C# Windows Forms application that manages superhero records using text files and incorporates Git version control. 
+# Superhero Database System (PRG282)
+Overview: A Windows Forms management system created for "One Kick Heroes Academy" to replace chaotic paper-based record-keeping.
+Key Features: Automates trainee record management, auto-calculates hero ranks based on exam scores, and generates detailed reports.
+Tech Stack: C#, Windows Forms, Git Version Control.
